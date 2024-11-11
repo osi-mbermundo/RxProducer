@@ -36,19 +36,19 @@ public class SensorRxController {
     }
 
     // Single: a flow of exactly 1 item or an error
-    @GetMapping(value = "/single", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/single", produces = MediaType.APPLICATION_JSON_VALUE)
     public Single<SensorData> getSingleSensorUpdate() {
         return sensorService.getSingleSensorUpdate();
     }
 
     // Maybe: a flow with no items, exactly one item or an error
-    @GetMapping(value = "/maybe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/maybe", produces = MediaType.APPLICATION_JSON_VALUE)
     public Maybe<SensorData> getMaybeSensorUpdate(boolean flag) {
         return sensorService.getMaybeSensorUpdate(flag);
     }
 
     // Completable: a flow without items but only a completion or error signal
-    @PostMapping(value = "/calibrate", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @PostMapping(value = "/calibrate", produces = MediaType.APPLICATION_JSON_VALUE)
     public Completable calibrateSensors() {
         return sensorService.calibrateSensors();
     }

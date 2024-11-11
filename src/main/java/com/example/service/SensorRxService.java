@@ -42,7 +42,7 @@ public class SensorRxService {
                             logger.error("[Observable] Error occurred: " + throwable.getMessage());
                             return new SensorData("error-sensor", 0, 0, LocalDateTime.now());
                         }))
-                .take(100)
+                .take(10)
                 .doOnComplete(() -> logger.info("[Observable] End of emitting sensor data. Subscription has completed."))
                 //.doOnError()
                 ;
